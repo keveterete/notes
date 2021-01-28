@@ -5,9 +5,10 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class Form2 : Form
+    public partial class Note : Form
     {
-        public Form2()
+
+        public Note()
         {
             InitializeComponent();
         }
@@ -17,8 +18,6 @@ namespace WindowsFormsApp1
         private void button1_Click(object sender, EventArgs e)
         {
             string filename = themeOfMessage.Text;
-            
-            
             string path = Path.Combine(Form1.pathWithFiles, filename + ".txt"); //moi dokumenti, mojno budet dobavit papku specialnuyu
             StreamWriter sw = new StreamWriter(path, false, Encoding.UTF8);
             sw.Write(contentOfMessage.Text);
@@ -49,6 +48,19 @@ namespace WindowsFormsApp1
         {
             get { return contentOfMessage.Text; }
             set { contentOfMessage.Text = value; }
+        }
+
+        private void BCopy(object sender, EventArgs e) //Кнопка копирования в конст. меню
+        {
+            Clipboard.SetText(contentOfMessage.SelectedText.ToString());
+        }
+
+        public void BInsert(object sender, EventArgs e) //Кнопка вставить в конст.меню
+        {
+            string text = Clipboard.GetText();
+            {
+                contentOfMessage.Text += text;
+            }
         }
 
         

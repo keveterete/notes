@@ -28,23 +28,44 @@ namespace WindowsFormsApp1
             InitializeComponent();
             bool existingDirectory = Directory.Exists(pathWithFiles);
             if (!existingDirectory) Directory.CreateDirectory(pathWithFiles);
-        }  
 
-        private void button1_Click(object sender, EventArgs e) //Кнопка нового файла
+       
+
+        }
+
+        private void button1_Click(object sender, EventArgs e) //Функция создания файла
         {
-            Form2 newfile = new Form2();
+            Note newfile = new Note();
             newfile.Owner = this;
-            newfile.ShowDialog(); 
+            newfile.ShowDialog();
+
         }
 
         public void Form1_Load(object sender, EventArgs e) 
         {
             RefreshList();
+
         }
 
+
+        public void Sort(object sender, EventArgs e)
+        {
+            FileInfo[] SortOfDate(FileInfo[] file)
+            {
+                Array.Sort(file, new Comparison<FileInfo>((f, f2) => f.CreationTime.CompareTo(f2.CreationTime)));
+                return file;
+            }
+
+        }
+        //FileInfo[] SortOfName(FileInfo[] file)
+        //{
+
+        //    Array.Sort(file, (f1, f2) => f1.Name.CompareTo(f2.Name));
+        //    return file;
+        //}
         private void openfile_Click(object sender, EventArgs e) //Кнопка загрузки файла
         {
-            Form2 loaded = new Form2();
+            Note loaded = new Note();
             loaded.Owner = this;
             try
             {
@@ -53,13 +74,14 @@ namespace WindowsFormsApp1
                 loaded.loadFileMessage = File.ReadAllText(Path.Combine(pathWithFiles, listWithFiles.SelectedItem.ToString()) + ".txt");
                 loaded.ShowDialog();
             }
-            catch (NullReferenceException)
+            catch (NullReferenceException) //Нужно ли это теперь?
             {
                 MessageBox.Show("Выберите файл!");
-            } 
+          }
         }
 
-        private void delet_Click(object sender, EventArgs e) //Кнопка удаления файла
+        private void delet_Click(object sender, EventArgs e) //Кнопка удаления файла (Конт меню)
+
         {
             try
             {
@@ -67,13 +89,25 @@ namespace WindowsFormsApp1
 
                 File.Delete(directoryOfFile);
             }
-            catch (NullReferenceException)
+            catch (NullReferenceException) 
             {
                 MessageBox.Show("Выберите файл!");
             }
 
             listWithFiles.Items.Clear();
             RefreshList();
+
+        }
+
+        private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e) { }
+        // конт меню правой мыши
+
+        private void contextMenuStrip2_Opening(object sender, System.ComponentModel.CancelEventArgs e) { }
+
+        private void Sorting_MouseClick(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
+
         }
     }
 }
