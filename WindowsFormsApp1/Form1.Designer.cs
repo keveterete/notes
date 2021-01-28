@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+
             this.listWithFiles = new System.Windows.Forms.ListBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ССreate = new System.Windows.Forms.ToolStripMenuItem();
@@ -157,6 +158,7 @@
             this.поToolStripMenuItem.Name = "поToolStripMenuItem";
             this.поToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.поToolStripMenuItem.Text = "По имени";
+
             // 
             // Form1
             // 
@@ -186,6 +188,8 @@
         }
 
         #endregion
+
+
         private System.Windows.Forms.ListBox listWithFiles;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private new System.Windows.Forms.ToolStripMenuItem Menu; // Тут предупреждение, я не понимаю его
@@ -198,5 +202,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem поДатеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem поToolStripMenuItem;
+
     }
 }

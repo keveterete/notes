@@ -7,6 +7,7 @@ namespace WindowsFormsApp1
 {
     public partial class Note : Form
     {
+
         public Note()
         {
             InitializeComponent();
@@ -17,8 +18,6 @@ namespace WindowsFormsApp1
         private void button1_Click(object sender, EventArgs e)
         {
             string filename = themeOfMessage.Text;
-
-
             string path = Path.Combine(Form1.pathWithFiles, filename + ".txt"); //moi dokumenti, mojno budet dobavit papku specialnuyu
             StreamWriter sw = new StreamWriter(path, false, Encoding.UTF8);
             sw.Write(contentOfMessage.Text);
@@ -63,5 +62,7 @@ namespace WindowsFormsApp1
                 contentOfMessage.Text += text;
             }
         }
+
+        
     }
 }

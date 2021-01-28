@@ -34,6 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.themeOfMessage = new System.Windows.Forms.TextBox();
             this.contentOfMessage = new System.Windows.Forms.TextBox();
+
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.Copy = new System.Windows.Forms.ToolStripMenuItem();
             this.Insert = new System.Windows.Forms.ToolStripMenuItem();
@@ -74,6 +75,7 @@
             // 
             // contentOfMessage
             // 
+
             this.contentOfMessage.ContextMenuStrip = this.contextMenuStrip1;
             this.contentOfMessage.Location = new System.Drawing.Point(12, 103);
             this.contentOfMessage.Multiline = true;
@@ -113,10 +115,12 @@
             this.buttonSave1.Text = "Сохранить";
             this.buttonSave1.UseVisualStyleBackColor = true;
             this.buttonSave1.Click += new System.EventHandler(this.button1_Click);
+
             // 
             // buttonCancel
             // 
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+
             this.buttonCancel.Location = new System.Drawing.Point(156, 350);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(136, 38);
@@ -162,6 +166,7 @@
             this.Name = "Note";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Note";
+
             this.Load += new System.EventHandler(this.Form2_Load);
             this.contextMenuStrip1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
@@ -184,5 +189,6 @@
         private System.Windows.Forms.ToolStripMenuItem Insert;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem buttonSave;
+
     }
 }
